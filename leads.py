@@ -2,10 +2,11 @@ from selenium import webdriver
 from time import sleep
 import re
 search = (input("Pesquisar por: ")).replace(" ","+")
-# search = "loja+de+oculos"
 import pygsheets
 import pandas as pd
-gc = pygsheets.authorize(service_file='/Users/mac/Desktop/Python/creds.json')
+
+# To put the result in Google Sheets
+gc = pygsheets.authorize(service_file='/path/to/file/creds.json')
 
 df = pd.DataFrame()
 sh = gc.open('Leads Bot')
@@ -18,7 +19,7 @@ dvalid = ['11','12', '13', '14', '15', '16', '17', '18','19','21', '22', '24','2
 
 class LeadBot:
     def __init__(self):
-        self.driver = webdriver.Chrome(executable_path='/Users/mac/Desktop/Python/chromedriver')
+        self.driver = webdriver.Chrome(executable_path='/path/to/file')
 
     def get_leads(self):
         while True:
